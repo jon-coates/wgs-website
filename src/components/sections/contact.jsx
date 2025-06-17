@@ -37,13 +37,9 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      // Netlify form submission
-      const formDataToSubmit = new FormData();
-      formDataToSubmit.append('form-name', 'contact');
-      Object.keys(formData).forEach(key => {
-        formDataToSubmit.append(key, formData[key]);
-      });
-
+      // Create FormData object for proper encoding
+      const formDataToSubmit = new FormData(e.target);
+      
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -84,161 +80,181 @@ const Contact = () => {
             </p>
           </div>
 
+          {/* Contact Form */}
+          <div>
+            <div className="bg-gray-50 rounded-lg p-8">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+                Send Us a Message
+              </h3>
 
-            {/* Contact Form */}
-            <div>
-              <div className="bg-gray-50 rounded-lg p-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                  Send Us a Message
-                </h3>
+              {/* Hidden HTML form for Netlify detection */}
+              <form name="contact" netlify="true" netlify-honeypot="bot-field" hidden>
+                <input type="text" name="name" />
+                <input type="email" name="email" />
+                <input type="tel" name="phone" />
+                <select name="enquiryType">
+                  <option value="digitisation">Digitisation & Rehousing</option>
+                  <option value="conservation">Conservation Services</option>
+                  <option value="consultation">Consultation</option>
+                  <option value="assessment">Collection Assessment</option>
+                  <option value="other">Other Enquiry</option>
+                </select>
+                <textarea name="message"></textarea>
+              </form>
 
-                {/* Netlify form detection - hidden form */}
-                <form name="contact" netlify="true" hidden>
-                  <input type="text" name="name" />
-                  <input type="email" name="email" />
-                  <input type="tel" name="phone" />
-                  <select name="enquiryType">
-                    <option value="digitisation">Digitisation & Rehousing</option>
-                  </select>
-                  <textarea name="message"></textarea>
-                </form>
+              {/* Actual React form */}
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                {/* Hidden fields required by Netlify */}
+                <input type="hidden" name="form-name" value="contact" />
+                
+                {/* Honeypot field for spam protection */}
+                <div hidden>
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </div>
 
-                {/* Actual form */}
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
-                        placeholder="Your full name"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
-                        placeholder="Your phone number"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="enquiryType" className="block text-sm font-medium text-gray-700 mb-2">
-                        Type of Enquiry *
-                      </label>
-                      <select
-                        id="enquiryType"
-                        name="enquiryType"
-                        value={formData.enquiryType}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
-                      >
-                        {enquiryTypes.map(type => (
-                          <option key={type.value} value={type.value}>
-                            {type.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      Name *
                     </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
                       onChange={handleInputChange}
                       required
-                      rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors resize-none"
-                      placeholder="Please tell us about your project, timeline, and any specific requirements..."
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                      placeholder="Your full name"
                     />
                   </div>
 
-                  {/* Status Messages */}
-                  {submitStatus === 'success' && (
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
-                      <div className="flex-shrink-0 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                      </div>
-                      <p className="text-green-800">
-                        Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
-                      </p>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                      placeholder="Your phone number"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="enquiryType" className="block text-sm font-medium text-gray-700 mb-2">
+                      Type of Enquiry *
+                    </label>
+                    <select
+                      id="enquiryType"
+                      name="enquiryType"
+                      value={formData.enquiryType}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                    >
+                      {enquiryTypes.map(type => (
+                        <option key={type.value} value={type.value}>
+                          {type.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors resize-none"
+                    placeholder="Please tell us about your project, timeline, and any specific requirements..."
+                  />
+                </div>
+
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+                    <div className="flex-shrink-0 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
                     </div>
+                    <p className="text-green-800">
+                      Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                    </p>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center space-x-3">
+                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+                    <p className="text-red-800">
+                      Sorry, there was an error sending your message. Please try again or contact us directly.
+                    </p>
+                  </div>
+                )}
+
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full justify-center"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Sending Message...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 mr-2" />
+                      Send Message
+                    </>
                   )}
+                </Button>
 
-                  {submitStatus === 'error' && (
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center space-x-3">
-                      <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
-                      <p className="text-red-800">
-                        Sorry, there was an error sending your message. Please try again or contact us directly.
-                      </p>
-                    </div>
-                  )}
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="w-full justify-center"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-
-                  <p className="text-sm text-gray-500 text-center">
-                    * Required fields. We respect your privacy and will never share your information.
-                  </p>
-                </form>
-              </div>
+                <p className="text-sm text-gray-500 text-center">
+                  * Required fields. We respect your privacy and will never share your information.
+                </p>
+              </form>
             </div>
+          </div>
         </div>
       </div>
     </section>
