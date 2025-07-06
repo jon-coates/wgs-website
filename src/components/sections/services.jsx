@@ -1,4 +1,4 @@
-import { Camera, Archive, BrushCleaning } from 'lucide-react'
+import { Camera, Archive, BrushCleaning, CheckCircle } from 'lucide-react'
 import Button from "../ui/button"
 
 const Services = () => {
@@ -8,19 +8,17 @@ const Services = () => {
           title: "Scanning & Digitisation",
           description: "Professional digitisation services creating high-quality digital surrogates whilst minimising handling of fragile materials.",
           features: [
-            "High-resolution scanning up to 600 DPI",
+            "High-resolution scanning",
             "Colour-managed digital workflows",
-            "Metadata creation and cataloguing",
             "Long-term digital storage solutions"
           ]
         },
         {
           icon: BrushCleaning,
           title: "Conservation & Preservation",
-          description: "Expert conservation assessments and treatments by a qualified professional following international standards to stabilise and preserve items for years to come.",
+          description: "Expert conservation assessments and treatments by a qualified conservator to stabilise and preserve items for years to come.",
           features: [
-            "Condition assessment and documentation",
-            "Paper and parchment conservation",
+            "Condition assessment & documentation",
             "Preventive conservation planning",
             "Emergency response and disaster recovery"
           ]
@@ -32,7 +30,6 @@ const Services = () => {
           features: [
             "Custom archival enclosures",
             "Conservation-grade materials only",
-            "Climate-controlled storage advice",
             "Collection organisation and cataloguing"
           ]
         }
@@ -73,15 +70,15 @@ const Services = () => {
                   {service.description}
                 </p>
                 
-                {/* Features List
+                {/* Features List */}
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <div className="w-2 h-2 bg-brand-400 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span className="text-gray-600 ">{feature}</span>
+                    <li key={featureIndex} className="flex items-start text-lg">
+                      <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <span className="text-gray-600">{feature}</span>
                     </li>
                   ))}
-                </ul> */}
+                </ul>
                 
                 {/* Spacer to push button down */}
                 <div className="flex-grow"></div>
