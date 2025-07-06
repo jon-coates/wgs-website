@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, AlertCircle } from 'lucide-react';
-import { siteConfig } from '../../config/siteConfig';
+import { Send, AlertCircle } from 'lucide-react';
 import Button from '../ui/button';
 
 const Contact = () => {
@@ -58,7 +57,7 @@ const Contact = () => {
       } else {
         throw new Error('Form submission failed');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -88,7 +87,7 @@ const Contact = () => {
               </h3>
 
               {/* Hidden HTML form for Netlify detection */}
-              <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+              <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="phone" />
