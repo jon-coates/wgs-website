@@ -35,15 +35,40 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
+    // Check if we're in development mode
+    const isDevelopment = import.meta.env.DEV;
+    
+    if (isDevelopment) {
+      // In development, just show success and reset form
+      console.log('Development mode: simulating form submission');
+      setTimeout(() => {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          enquiryType: '',
+          message: ''
+        });
+        setIsSubmitting(false);
+      }, 1000);
+      return;
+    }
+
     try {
       // Create FormData object for proper encoding
       const formDataToSubmit = new FormData(e.target);
+      
+      console.log('Submitting form data:', Object.fromEntries(formDataToSubmit));
       
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formDataToSubmit).toString()
       });
+
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
 
       if (response.ok) {
         setSubmitStatus('success');
@@ -55,10 +80,19 @@ const Contact = () => {
           message: ''
         });
       } else {
-        throw new Error('Form submission failed');
+        const responseText = await response.text();
+        console.error('Form submission failed:', response.status, responseText);
+        throw new Error(`Form submission failed: ${response.status}`);
       }
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
+      
+      // Fallback: try regular form submission
+      console.log('Attempting fallback form submission...');
+      const form = e.target;
+      form.removeEventListener('submit', handleSubmit);
+      form.submit();
     } finally {
       setIsSubmitting(false);
     }
@@ -222,9 +256,13 @@ const Contact = () => {
                 {submitStatus === 'error' && (
                   <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center space-x-3">
                     <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
-                    <p className="text-red-800">
-                      Sorry, there was an error sending your message. Please try again or contact us directly.
-                    </p>
+                    <div className="text-red-800">
+                      <p className="font-medium">Sorry, there was an error sending your message.</p>
+                      <p className="text-sm mt-1">
+                        Please try again or contact us directly. If the problem persists, 
+                        the form will automatically fall back to a standard submission.
+                      </p>
+                    </div>
                   </div>
                 )}
 
