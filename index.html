@@ -13,5 +13,19 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Hidden form for Netlify detection -->
+<form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <select name="enquiryType">
+    <option value="digitisation">Digitisation & Rehousing</option>
+    <option value="conservation">Conservation Services</option>
+    <option value="consultation">Consultation</option>
+    <option value="assessment">Collection Assessment</option>
+    <option value="other">Other Enquiry</option>
+  </select>
+  <textarea name="message"></textarea>
+</form>
   </body>
 </html>
