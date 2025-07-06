@@ -69,7 +69,7 @@ const Services = () => {
                 </h3>
                 
                 {/* Description */}
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-6 leading-relaxed text-lg">
                   {service.description}
                 </p>
                 
@@ -87,9 +87,9 @@ const Services = () => {
                 <div className="flex-grow"></div>
                 
                 {/* Learn More Link */}
-                <Button variant="outline" size="sm" className="p-0 h-auto mt-auto">
+                {/* <Button variant="outline" size="sm" className="p-0 h-auto mt-auto">
                   Learn more →
-                </Button>
+                </Button> */}
               </div>
             )
           })}
