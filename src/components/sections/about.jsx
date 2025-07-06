@@ -5,7 +5,7 @@ function About() {
     <section className="py-20 bg-white max-w-6xl mx-auto" id="about">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-left md:text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-900 mb-6">
             About White Gloves Studios
           </h2>
@@ -17,7 +17,7 @@ function About() {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Image Column */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
             <div className="relative">
               {/* Cody's professional image */}
               <div className="aspect-[4/5] bg-zinc-200 rounded-2xl overflow-hidden">
@@ -49,7 +49,7 @@ function About() {
           </div>
 
           {/* Text Column */}
-          <div className="order-1 lg:order-2">
+          <div className="order-2 lg:order-2">
             <div className="space-y-6">
               {/* <h3 className="font-display text-2xl md:text-3xl font-bold text-zinc-900">
                 Cody Coates

@@ -70,7 +70,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-left md:text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Get in Touch
             </h2>
@@ -82,13 +82,13 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <div className="bg-gray-50 rounded-lg p-8">
+            <div className="bg-gray-50 rounded-lg p-4 md:p-8">
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
                 Send Us a Message
               </h3>
 
               {/* Hidden HTML form for Netlify detection */}
-              <form name="contact" netlify="true" netlify-honeypot="bot-field" hidden>
+              <form name="contact" netlify netlify-honeypot="bot-field" hidden>
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="phone" />

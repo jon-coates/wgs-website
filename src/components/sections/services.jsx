@@ -40,7 +40,7 @@ const Services = () => {
     <section className="py-20 bg-zinc-100" id="services">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-left md:text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-900 mb-6">
             Our Services
           </h2>
