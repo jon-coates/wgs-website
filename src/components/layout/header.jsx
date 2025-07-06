@@ -34,13 +34,8 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile Navigation - Button + Menu Toggle */}
-          <div className="lg:hidden flex items-center space-x-3">
-            {/* Mobile CTA Button - visible on smaller screens */}
-            <Button size="sm" className="text-sm px-3 py-2">
-              Get Quote
-            </Button>
-            
+          {/* Mobile Navigation - Menu Toggle */}
+          <div className="lg:hidden flex items-center">
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -57,18 +52,44 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-gray-100">
-            <div className="flex flex-col space-y-4 pt-4">
-              {siteConfig.navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-brand-600 font-medium py-2 transition-colors"
+          <div className="lg:hidden fixed inset-0 bg-white z-50">
+            <div className="flex flex-col h-full">
+              {/* Mobile menu header */}
+              <div className="flex justify-between items-center p-6 border-b border-gray-100">
+                <div className="text-2xl font-display font-bold text-zinc-900">
+                  White Gloves Studio
+                </div>
+                <button
                   onClick={() => setIsMenuOpen(false)}
+                  className="p-2 rounded-md text-gray-600 hover:text-brand-600 hover:bg-gray-100"
                 >
-                  {item.name}
-                </a>
-              ))}
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              
+              {/* Mobile menu content */}
+              <div className="flex-1 flex flex-col justify-between px-6 py-8">
+                {/* Navigation links - centered */}
+                <div className="flex flex-col space-y-6">
+                  {siteConfig.navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="text-2xl text-gray-700 hover:text-brand-600 font-medium py-3 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+                
+                {/* Mobile CTA Button - pushed to bottom */}
+                <div>
+                  <Button size="lg" className="w-full">
+                    Get Quote
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         )}
