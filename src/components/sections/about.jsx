@@ -10,7 +10,7 @@ function About() {
             About White Gloves Studios
           </h2>
           <p className="text-xl text-zinc-600 max-w-3xl mx-auto">
-            Meet Cody Coates, the passionate conservator behind our commitment to preserving your family's precious memories
+            Meet Cody, the passionate conservator behind our commitment to preserving your family's precious memories
           </p>
         </div>
 

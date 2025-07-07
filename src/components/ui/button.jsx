@@ -9,8 +9,8 @@ const Button = ({
     const baseClasses = "font-bold font-display rounded-lg transition-colors inline-flex items-center justify-center"
     
     const variants = {
-      primary: "bg-brand-300 hover:bg-brand-200 text-black hover:-translate-y-1 transition-all",
-      secondary: "border-2 border-brand-200 text-gray-800 hover:bg-brand-200 bg-transparent hover:-translate-y-1 transition-all",
+      primary: "bg-brand-300 hover:bg-brand-400 text-black transition-all",
+      secondary: "border-2 border-zinc-200 bg-white/60 text-gray-800 hover:border-brand-400 hover:bg-brand-400 bg-transparent transition-all",
       outline: "border border-gray-300 text-gray-700 hover:bg-gray-50",
       text: "text-brand-600 hover:text-brand-700 hover:bg-brand-50"
     }
