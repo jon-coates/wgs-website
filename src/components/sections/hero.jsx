@@ -3,14 +3,14 @@ import { siteConfig } from "../../config/siteConfig"
 
 function Hero() {
     return (
-      <section className="relative bg-zinc-50 min-h-[60vh] flex items-center">
+      <section className="relative bg-zinc-50 md:min-h-[60vh] flex items-center">
         
         {/* Overlay for better text readability */}
         
         <div className="container mx-auto px-6 relative z-10 py-20">
           <div className="max-w-4xl mx-auto text-center">
             {/* Main headline */}
-            <h1 className="font-display text-8xl tracking-tight md:text-6xl text-zinc-900 mb-6 leading-tight">
+            <h1 className="font-display text-5xl md:text-8xl tracking-tight text-zinc-900 mb-6 leading-tight">
               Don&apos;t be the last person to see your family&apos;s photos.
             </h1>
             

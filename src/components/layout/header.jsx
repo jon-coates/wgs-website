@@ -13,7 +13,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-2xl font-display font-bold text-zinc-900">
+            <div className="text-base md:text-2xl font-display font-bold text-zinc-900">
               White Gloves Studio
             </div>
           </div>
