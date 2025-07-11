@@ -115,10 +115,13 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div>
-            <div className="bg-gray-50 rounded-lg p-4 md:p-8">
-              <h3 className="text-2xl font-display text-gray-900 mb-6">
+            <div className="bg-zinc-50 rounded-lg p-6 md:p-8">
+              <h3 className="text-2xl font-display text-gray-900">
                 Send Us a Message
               </h3>
+              <p className="text-base text-gray-600 max-w-2xl mx-auto  mb-6">
+              Send a brief message and we'll be in touch to answer any questions or to discuss your next steps.
+            </p>
 
               {/* Hidden HTML form for Netlify detection */}
               <form name="contact" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
@@ -166,7 +169,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors bg-white"
                       placeholder="Your full name"
                     />
                   </div>
@@ -182,7 +185,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors bg-white"
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -199,7 +202,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors bg-white"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -214,7 +217,7 @@ const Contact = () => {
                       value={formData.enquiryType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors bg-white"
                     >
                       {enquiryTypes.map(type => (
                         <option key={type.value} value={type.value}>
@@ -236,7 +239,7 @@ const Contact = () => {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors resize-none bg-white"
                     placeholder="Please tell us about your project, timeline, and any specific requirements..."
                   />
                 </div>
