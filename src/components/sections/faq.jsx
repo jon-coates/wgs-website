@@ -57,7 +57,7 @@ function FAQ() {
           <div className="flex justify-center mb-4">
             <HelpCircle className="w-12 h-12 text-brand-400" />
           </div>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-900 mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-zinc-900 mb-6">
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-zinc-600 max-w-2xl mx-auto">

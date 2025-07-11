@@ -104,7 +104,7 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-left md:text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-display text-gray-900 mb-4">
               Get in Touch
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -116,7 +116,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div>
             <div className="bg-gray-50 rounded-lg p-4 md:p-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+              <h3 className="text-2xl font-display text-gray-900 mb-6">
                 Send Us a Message
               </h3>
 

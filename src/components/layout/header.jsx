@@ -7,7 +7,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white border-b-1 border-zinc-200 sticky top-0 z-50">
       {/* Main navigation */}
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
@@ -19,7 +19,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8 font-display">
             {siteConfig.navigation.map((item) => (
               <a
                 key={item.name}

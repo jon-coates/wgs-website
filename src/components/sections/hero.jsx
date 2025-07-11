@@ -3,28 +3,20 @@ import { siteConfig } from "../../config/siteConfig"
 
 function Hero() {
     return (
-      <section className="relative bg-white min-h-[60vh] flex items-center">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/white-gloves-studios-hero-bg.png')"
-          }}
-        />
+      <section className="relative bg-zinc-50 min-h-[60vh] flex items-center">
         
         {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-white/80"></div>
         
         <div className="container mx-auto px-6 relative z-10 py-20">
           <div className="max-w-4xl mx-auto text-center">
             {/* Main headline */}
-            <h1 className="font-display text-5xl tracking-tight md:text-6xl font-bold text-zinc-900 mb-6 leading-tight">
-                Preserving Your Family's Memories with Care
+            <h1 className="font-display text-8xl tracking-tight md:text-6xl text-zinc-900 mb-6 leading-tight">
+              Don&apos;t be the last person to see your family&apos;s photos.
             </h1>
             
             {/* Subheadline */}
-            <p className="text-lg md:text-xl text-zinc-600 mb-8">
-              Expert digitisation, rehousing, and conservation treatments for institutions and private collectors
+            <p className="text-base md:text-lg text-zinc-500 mb-8">
+            We protect your originals whilst creating crystal-clear digital archives, preserving your family's story for generations to come.
             </p>
             
             
@@ -32,7 +24,6 @@ function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <Button size="md" href="#contact">{siteConfig.cta.primary}</Button>
-              <Button variant="secondary" size="md" href="#services">Our Services</Button>
             </div>
             
 

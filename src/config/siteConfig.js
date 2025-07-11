@@ -50,7 +50,7 @@ export const siteConfig = {
   
     // Call-to-action text
     cta: {
-      primary: 'Schedule a Consultation',
+      primary: 'Book a free consultation',
       secondary: 'Get Quote',
       contact: 'Contact Us Today'
     }

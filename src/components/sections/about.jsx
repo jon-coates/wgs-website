@@ -6,7 +6,7 @@ function About() {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-left md:text-center mb-16">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-900 mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-zinc-900 mb-6">
             About White Gloves Studios
           </h2>
           <p className="text-xl text-zinc-600 max-w-3xl mx-auto">
@@ -96,7 +96,7 @@ function About() {
                 </p>
                 <a 
                   href="#contact" 
-                  className="inline-flex items-center px-6 py-3 bg-brand-400 text-black font-semibold rounded-lg hover:bg-brand-500 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-brand-400 text-black font-display rounded-full hover:bg-brand-500 transition-colors"
                 >
                   Schedule a Consultation
                 </a>

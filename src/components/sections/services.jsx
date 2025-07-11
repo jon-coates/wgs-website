@@ -37,45 +37,46 @@ const Services = () => {
       
 
   return (
-    <section className="py-20 bg-zinc-100" id="services">
+    <section className="py-10 bg-zinc-50" id="services">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-left md:text-center mb-16">
+        {/* <div className="text-left md:text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-zinc-900 mb-6">
             Our Services
           </h2>
           <p className="text-xl text-zinc-600 max-w-3xl mx-auto">
           Professional conservation and digitisation services to help preserve your family's precious memories, documents, and treasured items for future generations.
           </p>
-        </div>
+        </div> */}
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
-              <div key={index} className="bg-white border-zinc-200 border-1 rounded-xl p-8 hover:shadow-lg transition-shadow flex flex-col">
+              <div key={index} className="flex flex-col">
+                
                 {/* Icon */}
-                <div className="bg-brand-400 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                  <Icon className="w-8 h-8 text-black" />
+                <div className="w-16 h-16 flex items-center justify-center mb-6">
+                  <Icon className="w-16 h-18 text-brand-500" strokeWidth={1} absoluteStrokeWidth/>
                 </div>
                 
                 {/* Title */}
-                <h3 className="font-display text-2xl font-bold text-zinc-900 mb-4">
+                <h3 className="font-display text-3xl text-zinc-900 mb-4">
                   {service.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-gray-700 mb-6 leading-relaxed text-lg">
+                {/* <p className="text-zinc-600 mb-6 font-normal leading-relaxed text-lg">
                   {service.description}
-                </p>
+                </p> */}
                 
                 {/* Features List */}
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start text-lg">
+                    <li key={featureIndex} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-gray-600">{feature}</span>
+                      <span className="text-zinc-600 font-normal">{feature}</span>
                     </li>
                   ))}
                 </ul>
