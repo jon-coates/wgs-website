@@ -62,7 +62,7 @@ const Services = () => {
                 </div>
                 
                 {/* Title */}
-                <h3 className="font-display text-3xl text-zinc-900 mb-4">
+                <h3 className="font-display text-2xl md:text-3xl text-zinc-900 mb-4">
                   {service.title}
                 </h3>
                 
@@ -72,11 +72,11 @@ const Services = () => {
                 </p> */}
                 
                 {/* Features List */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2 mb-6 font-sans">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-zinc-600 font-normal">{feature}</span>
+                      <span className="text-zinc-600">{feature}</span>
                     </li>
                   ))}
                 </ul>

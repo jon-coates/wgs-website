@@ -76,7 +76,7 @@ function FAQ() {
                 onClick={() => toggleItem(index)}
                 className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-zinc-50 transition-colors"
               >
-                <h3 className="font-semibold text-zinc-900 text-lg pr-4">
+                <h3 className="font-display text-zinc-900 text-lg pr-4">
                   {item.question}
                 </h3>
                 {openItems.has(index) ? (
@@ -106,7 +106,7 @@ function FAQ() {
           </p>
           <a 
             href="#contact" 
-            className="inline-flex items-center px-6 py-3 bg-brand-400 text-black font-semibold rounded-lg hover:bg-brand-500 transition-colors"
+            className="inline-flex items-center px-8 py-4 text-xl bg-brand-300 text-black font-display rounded-full hover:bg-brand-500 transition-colors"
           >
             Contact Us
           </a>

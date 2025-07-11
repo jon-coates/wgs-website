@@ -5,17 +5,17 @@ function About() {
     <section className="py-20 bg-white max-w-6xl mx-auto" id="about">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-left md:text-center mb-16">
+        <div className="text-left md:text-center mb-16 ">
           <h2 className="font-display text-3xl md:text-4xl text-zinc-900 mb-6">
             About White Gloves Studios
           </h2>
-          <p className="text-xl text-zinc-600 max-w-3xl mx-auto">
+          <p className="text-lf font-sans text-zinc-600 max-w-3xl mx-auto">
             Meet Cody, the passionate conservator behind our commitment to preserving your family's precious memories
           </p>
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start font-sans">
           {/* Image Column */}
           <div className="order-1 lg:order-1">
             <div className="relative">
@@ -63,7 +63,7 @@ function About() {
               </p>
 
               {/* Credentials and Specialisations */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+              {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
                 <div className="flex items-start space-x-3">
                   <Award className="w-6 h-6 text-brand-400 mt-1 flex-shrink-0" />
                   <div>
@@ -87,16 +87,19 @@ function About() {
                     <p className="text-sm text-zinc-600">Your memories in safe, professional hands</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* Call to Action */}
-              <div className="pt-6">
-                <p className="text-zinc-700 mb-4 font-bold">
-                  Ready to preserve your family's precious memories? Let's discuss how we can help protect your treasured items for future generations.
+              <div className='bg-zinc-100 p-6 rounded-2xl'>
+                <h3 className="text-zinc-700 mb-2 font-bold font-display text-2xl leading-relaxed">
+                  Ready to preserve your family's precious memories?
+                </h3>
+                <p className="text-zinc-700 mb-8 font-sans text-lg leading-relaxed">
+                  Let's discuss how we can help protect your treasured items for future generations.
                 </p>
                 <a 
                   href="#contact" 
-                  className="inline-flex items-center px-6 py-3 bg-brand-400 text-black font-display rounded-full hover:bg-brand-500 transition-colors"
+                  className="inline-flex justify-center items-center px-8 py-4 text-xl bg-brand-300 text-black font-display rounded-full hover:bg-brand-500 transition-colors w-full text-center"
                 >
                   Schedule a Consultation
                 </a>
