@@ -28,8 +28,12 @@ function FAQ() {
       answer: "Yes, we provide high-quality digitisation services using professional equipment. This includes scanning documents and photographs at archival-quality resolution, creating digital backups of your precious items, and providing both digital files and physical conservation treatment."
     },
     {
+        question: "How should I prepare my items for digitisation?",
+        answer: "Handle the items as little as possible and do not remove any photos that are stuck to pages, each other or glass. If you want your photos to be scanned in particular groups or orders, please let us know."
+      },
+    {
       question: "How do you ensure the safety of my items during treatment?",
-      answer: "Your items are handled with the utmost care using professional conservation techniques and materials. We work in a controlled environment with proper lighting, temperature, and humidity controls. All treatments are reversible and use archival-quality materials. We also maintain detailed documentation of all work performed."
+      answer: "Your items are handled with the utmost care using professional conservation techniques and materials. All treatments are reversible and use archival-quality materials. We also maintain detailed documentation of all work performed."
     },
     {
       question: "Can you work with very fragile or damaged items?",
@@ -41,7 +45,7 @@ function FAQ() {
     },
     {
       question: "What areas do you service in Queensland?",
-      answer: "We primarily serve the Brisbane and Gold Coast regions, but we can arrange collection and delivery for clients throughout Queensland and interstate. For larger collections or institutions, we can also provide on-site services. Contact us to discuss your specific location and requirements."
+      answer: "We primarily serve the Brisbane and Gold Coast regions, but we can arrange collection and delivery for clients throughout Queensland and Australia. For larger collections or institutions, we can also provide on-site services. Contact us to discuss your specific location and requirements."
     },
     {
       question: "How do I prepare my items for conservation treatment?",

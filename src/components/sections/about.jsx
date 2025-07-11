@@ -2,14 +2,14 @@ import { Award, BookOpen, Shield } from 'lucide-react'
 
 function About() {
   return (
-    <section className="py-20 bg-white max-w-6xl mx-auto" id="about">
+    <section className="md:py-20 py-10 bg-white max-w-6xl mx-auto" id="about">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-left md:text-center mb-16 ">
-          <h2 className="font-display text-3xl md:text-4xl text-zinc-900 mb-6">
+        <div className="text-left md:text-center md:mb-16 mb-8">
+          <h2 className="font-display text-4xl md:text-4xl text-zinc-900 mb-4">
             About White Gloves Studios
           </h2>
-          <p className="text-lf font-sans text-zinc-600 max-w-3xl mx-auto">
+          <p className="text-xl font-sans text-zinc-600 max-w-3xl mx-auto">
             Meet Cody, the passionate conservator behind our commitment to preserving your family's precious memories
           </p>
         </div>

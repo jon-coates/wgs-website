@@ -7,7 +7,7 @@ function Hero() {
         
         {/* Overlay for better text readability */}
         
-        <div className="container mx-auto px-6 relative z-10 py-20">
+        <div className="container mx-auto px-6 relative z-10 pt-16 pb-6 md:pt-32 md:pb-20">
           <div className="max-w-4xl mx-auto text-center">
             {/* Main headline */}
             <h1 className="font-display text-5xl md:text-7xl tracking-tight text-zinc-900 mb-6 leading-tight">
@@ -15,8 +15,8 @@ function Hero() {
             </h1>
             
             {/* Subheadline */}
-            <p className="text-base md:text-lg text-zinc-500 mb-8">
-            We protect your originals whilst creating crystal-clear digital archives, preserving your family's story for generations to come.
+            <p className="text-lg text-zinc-600 mb-8">
+            Protect your originals. Create crystal-clear digital archives. Preserve your family's story for generations to come.
             </p>
             
             

@@ -57,7 +57,7 @@ const Services = () => {
               <div key={index} className="flex flex-col">
                 
                 {/* Icon */}
-                <div className="w-16 h-16 flex items-center justify-center mb-6">
+                <div className="w-16 h-16 flex items-center justify-center md:mb-6 mb-4">
                   <Icon className="w-16 h-18 text-brand-500" strokeWidth={1} absoluteStrokeWidth/>
                 </div>
                 
