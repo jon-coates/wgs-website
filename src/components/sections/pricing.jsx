@@ -88,7 +88,8 @@ const Pricing = () => {
     },
     additionalServices: [
       {"service": "On-site Work", "price": 180.00, "unit": "per hour"},
-      {"service": "Rush Processing", "price": "+50% of base rates"},
+      {"service": "Rush Processing", "price": "+50%", "unit": "of base rates"},
+      {"service": "Rush Processing", "price": "+50%", "unit": "of base rates"},
       {"service": "Weekend/After Hours", "price": "+25% of base rates"},
       {"service": "Colour Correction", "price": 2.00, "unit": "per image"},
       {"service": "Photo Restoration", "price": "25.00 - 150.00", "unit": "per image"},
@@ -245,13 +246,13 @@ const Pricing = () => {
               
               <div className="space-y-6">
                 <PricingCard title="Fast Feed Scanning">
-                  <p className="text-sm text-zinc-600 mb-4">{pricingData.photoScanning.fastFeed.description}</p>
+                  <p className="text-sm text-zinc-600 mb-0">{pricingData.photoScanning.fastFeed.description}</p>
                   <p className="text-sm text-zinc-600 mb-4">Max size: {pricingData.photoScanning.fastFeed.maxSize}</p>
                   <PricingTable items={pricingData.photoScanning.fastFeed.pricing} />
                 </PricingCard>
                 
                 <PricingCard title="Flatbed Scanning">
-                  <p className="text-sm text-zinc-600 mb-4">{pricingData.photoScanning.flatbed.description}</p>
+                  <p className="text-sm text-zinc-600 mb-0">{pricingData.photoScanning.flatbed.description}</p>
                   <p className="text-sm text-zinc-600 mb-4">Max size: {pricingData.photoScanning.flatbed.maxSize}</p>
                   <PricingTable items={pricingData.photoScanning.flatbed.pricing} />
                 </PricingCard>
@@ -303,11 +304,12 @@ const Pricing = () => {
               <h3 className="font-display text-2xl text-zinc-900 mb-6">Additional Services</h3>
               
               <div className="space-y-6">
-                <PricingCard title="Handling & Processing">
+                <PricingCard title="Delecate Items">
                   <PricingTable items={pricingData.fragileItemFees} />
-                  <div className="mt-4 pt-4 border-t border-zinc-100">
-                    <PricingTable items={pricingData.albumHandling} />
-                  </div>
+                </PricingCard>
+
+                <PricingCard title="Album Handling">
+                  <PricingTable items={pricingData.albumHandling} />
                 </PricingCard>
                 
                 <PricingCard title="Digital Services">
