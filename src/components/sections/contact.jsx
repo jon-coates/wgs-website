@@ -116,11 +116,11 @@ const Contact = () => {
           {/* Contact Form */}
           <div>
             <div className="bg-zinc-50 rounded-lg p-6 md:p-8">
-              <h3 className="text-2xl font-display text-gray-900">
+              <h3 className="text-2xl mb-2 font-display text-gray-900">
                 Send Us a Message
               </h3>
-              <p className="text-base text-gray-600 max-w-2xl mx-auto  mb-6">
-              Send a brief message and we'll be in touch to answer any questions or to discuss your next steps.
+              <p className="text-base text-gray-600 mx-auto  mb-6">
+              We'll be in touch to answer any questions or to discuss your next steps.
             </p>
 
               {/* Hidden HTML form for Netlify detection */}
