@@ -124,7 +124,7 @@ const Pricing = () => {
 
   const PricingCard = ({ title, children, className = "" }) => (
     <div className={`bg-white rounded-2xl border border-zinc-200 p-6  transition-shadow ${className}`}>
-      <h3 className="font-display text-xl text-zinc-900 mb-4">{title}</h3>
+      <h3 className="font-display text-xl text-zinc-900 mb-">{title}</h3>
       {children}
     </div>
   )
@@ -168,7 +168,7 @@ const Pricing = () => {
   )
 
   const navigationItems = [
-    { id: "setup", label: "Setup Fee", icon: DollarSign },
+    { id: "setup", label: "Setup & Admin Fees", icon: DollarSign },
     { id: "photo-scanning", label: "Photo Scanning", icon: Camera },
     { id: "specialised-scanning", label: "Specialised Scanning", icon: Archive },
     { id: "conservation", label: "Conservation Services", icon: Shield },
@@ -181,10 +181,7 @@ const Pricing = () => {
     <section className="py-20 bg-zinc-50" id="pricing">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
-            <DollarSign className="w-12 h-12 text-brand-400" />
-          </div>
+        <div className="text-left md:text-center md:mb-16 mb-8">
           <h2 className="font-display text-3xl md:text-4xl text-zinc-900 mb-6">
             Digitisation & Conservation Pricing
           </h2>
@@ -199,7 +196,7 @@ const Pricing = () => {
           <div className="lg:w-64 flex-shrink-0">
             <div className="sticky top-24">
               <div className="bg-white rounded-2xl border border-zinc-200 p-6 shadow-sm">
-                <h3 className="font-display text-lg text-zinc-900 mb-4">Quick Navigation</h3>
+                <h3 className="font-display text-lg text-zinc-900 mb-4">Jump to Pricing for:</h3>
                 <nav className="space-y-2">
                   {navigationItems.map((item) => {
                     const Icon = item.icon

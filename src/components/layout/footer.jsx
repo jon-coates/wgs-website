@@ -119,7 +119,6 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <Button className='mt-4' size='sm'>{siteConfig.cta.secondary}</Button>
           </div>
 
           {/* Acnolodgment of Traditional Owers */}
