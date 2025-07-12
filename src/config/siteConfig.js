@@ -25,7 +25,9 @@ export const siteConfig = {
     navigation: [
       { name: 'Services', href: '#services' },
       { name: 'About', href: '#about' },
-      { name: 'Contact', href: '#contact' }
+      { name: 'Pricing', href: '#pricing' },
+      { name: 'Contact', href: '#contact' },
+      { name: 'FAQ', href: '#faq' }
     ],
   
     socialLinks: [

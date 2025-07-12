@@ -12,18 +12,18 @@ const Pricing = () => {
         description: "Ideal for collections in good condition - scans both sides simultaneously",
         maxSize: "8\" x 10\"",
         pricing: [
-          {"size": "Up to 4\" x 6\"", "price": 1.50},
-          {"size": "5\" x 7\"", "price": 2.00},
-          {"size": "8\" x 10\"", "price": 2.50}
+          {"size": "Up to 4\" x 6\"", "price": 1.50, "unit": "per photo"},
+          {"size": "5\" x 7\"", "price": 2.00, "unit": "per photo"},
+          {"size": "8\" x 10\"", "price": 2.50, "unit": "per photo"}
         ]
       },
       flatbed: {
         description: "For fragile items or photos requiring individual care",
         maxSize: "8\" x 10\"",
         pricing: [
-          {"size": "Up to 4\" x 6\"", "price": 4.00},
-          {"size": "5\" x 7\"", "price": 5.50},
-          {"size": "8\" x 10\"", "price": 7.50}
+          {"size": "Up to 4\" x 6\"", "price": 4.00, "unit": "per photo"},
+          {"size": "5\" x 7\"", "price": 5.50, "unit": "per photo"},
+          {"size": "8\" x 10\"", "price": 7.50, "unit": "per photo"}
         ]
       }
     },
@@ -46,9 +46,9 @@ const Pricing = () => {
       {"level": "Level 3 - Custom housing/enclosure", "price": "15.00+", "unit": "per item"}
     ],
     albumHandling: [
-      {"type": "Small albums (up to 50 photos)", "price": 40.00},
-      {"type": "Medium albums (51-150 photos)", "price": 80.00},
-      {"type": "Large albums (151+ photos)", "price": 160.00}
+      {"type": "Small albums (up to 50 photos)", "price": 40.00, "unit": "per album"},
+      {"type": "Medium albums (51-150 photos)", "price": 80.00, "unit": "per album"},
+      {"type": "Large albums (151+ photos)", "price": 160.00, "unit": "per album"}
     ],
     fileManagement: {
       customDocumentation: {
@@ -122,7 +122,7 @@ const Pricing = () => {
   }
 
   const PricingCard = ({ title, children, className = "" }) => (
-    <div className={`bg-white rounded-2xl border border-zinc-200 p-6 shadow-sm hover:shadow-md transition-shadow ${className}`}>
+    <div className={`bg-white rounded-2xl border border-zinc-200 p-6  transition-shadow ${className}`}>
       <h3 className="font-display text-xl text-zinc-900 mb-4">{title}</h3>
       {children}
     </div>

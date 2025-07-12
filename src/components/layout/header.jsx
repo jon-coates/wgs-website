@@ -29,9 +29,6 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <Button size="sm">
-              Get Quote
-            </Button>
           </div>
 
           {/* Mobile Navigation - Menu Toggle */}

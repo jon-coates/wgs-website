@@ -29,7 +29,7 @@ function FAQ() {
     },
     {
         question: "Do you scan slides and negatives?",
-        answer: "Yes, we can scan slides and negatives at archival-quality resolution; creating digital backups of your precious items."
+        answer: "Yes, we specialise in professional slide and negative scanning services using the Epson Perfection V850 Pro scanner. We can digitise your precious memories at archival-quality resolution up to 6400 DPI, creating high-resolution digital backups that preserve every detail. We can scan a wide range of popular items including 35mm colour and black & white negatives, 35mm mounted slides, medium format film such as 120/220 roll film, large format sheet film, APS (Advanced Photo System) negatives, classic Kodachrome and Ektachrome slides, vintage family photo slides, professional transparency film, panoramic negatives, and glass plate negatives with proper holders. Our professional scanning service ensures your irreplaceable photographic memories are preserved digitally with exceptional colour accuracy and detail, protecting them for future generations whilst maintaining the highest archival standards."
     },
     {
         question: "How should I prepare my items for digitisation?",
