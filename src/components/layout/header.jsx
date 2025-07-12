@@ -75,7 +75,7 @@ const Header = () => {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-2xl text-gray-700 hover:text-brand-600 font-medium py-3 transition-colors"
+                      className="text-2xl text-gray-700 hover:text-brand-600 font-display py-3 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.name}

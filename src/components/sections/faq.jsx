@@ -17,7 +17,7 @@ function FAQ() {
   const faqData = [
     {
       question: "What types of items can you conserve and restore?",
-      answer: "We specialise in paper-based materials including photographs, documents, maps, certificates, letters, artwork, and archival materials. Our expertise covers items from the 19th century through to modern materials. We can assess and treat items that are torn, stained, faded, or showing signs of deterioration."
+      answer: "We specialise in paper-based materials including photographs, documents, certificates, letters, and artworks. Our expertise covers items from the 19th century through to modern materials. We can assess and treat items that are torn, stained, faded, or showing signs of deterioration."
     },
     {
       question: "How long does the conservation process typically take?",
@@ -25,11 +25,15 @@ function FAQ() {
     },
     {
       question: "Do you offer digitisation services as well?",
-      answer: "Yes, we provide high-quality digitisation services using professional equipment. This includes scanning documents and photographs at archival-quality resolution, creating digital backups of your precious items, and providing both digital files and physical conservation treatment."
+      answer: "Yes, we provide high-quality digitisation services using professional equipment. We scan documents, photographs, negatives and slides at archival-quality resolution; creating digital backups of your precious items."
+    },
+    {
+        question: "Do you scan slides and negatives?",
+        answer: "Yes, we can scan slides and negatives at archival-quality resolution; creating digital backups of your precious items."
     },
     {
         question: "How should I prepare my items for digitisation?",
-        answer: "Handle the items as little as possible and do not remove any photos that are stuck to pages, each other or glass. If you want your photos to be scanned in particular groups or orders, please let us know."
+        answer: "Handle the items as little as possible and do not remove any photos that are stuck to pages, each other, or glass. If you want your photos to be scanned in particular groups or orders, please let us know."
       },
     {
       question: "How do you ensure the safety of my items during treatment?",
@@ -37,15 +41,15 @@ function FAQ() {
     },
     {
       question: "Can you work with very fragile or damaged items?",
-      answer: "Absolutely. We specialise in treating fragile and severely damaged items. Our first step is always a thorough assessment to determine the best approach. In some cases, we may recommend stabilisation rather than full restoration to preserve the item's integrity. We'll discuss all options with you before proceeding."
+      answer: "Absolutely. We specialise in treating fragile and severely damaged items. Our first step is always a thorough assessment to determine the best approach. We'll discuss all options with you before proceeding."
     },
     {
       question: "Do you provide consultations and quotes?",
-      answer: "Yes, we offer free initial consultations where we can assess your items and discuss treatment options. We'll provide a detailed quote including the proposed treatment plan, timeline, and cost. You can bring items to us or send photographs for remote assessment."
+      answer: "Yes, we offer free initial consultations where we can assess your items and discuss treatment options. We'll provide a detailed quote including the proposed treatment plan, timeline, and cost."
     },
     {
-      question: "What areas do you service in Queensland?",
-      answer: "We primarily serve the Brisbane and Gold Coast regions, but we can arrange collection and delivery for clients throughout Queensland and Australia. For larger collections or institutions, we can also provide on-site services. Contact us to discuss your specific location and requirements."
+      question: "What areas do you service?",
+      answer: "We primarily serve the Brisbane, Gold Coast and Sunshine Coast regions, but we can arrange collection and delivery for clients throughout Queensland and Australia. For larger collections or institutions, we can also provide on-site services. Contact us to discuss your specific location and requirements."
     },
     {
       question: "How do I prepare my items for conservation treatment?",
@@ -64,7 +68,7 @@ function FAQ() {
           <h2 className="font-display text-3xl md:text-4xl text-zinc-900 mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-zinc-600 max-w-2xl mx-auto">
+          <p className="text-xl text-zinc-600 max-w-2xl mx-auto font-display">
             Common questions about our conservation and digitisation services
           </p>
         </div>

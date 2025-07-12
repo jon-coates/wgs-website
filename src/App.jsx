@@ -5,6 +5,7 @@ import Contact from "./components/sections/contact"
 import Hero from "./components/sections/hero"
 import Services from "./components/sections/services"
 import FAQ from "./components/sections/faq"
+import Pricing from "./components/sections/pricing"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Hero />
       <Services />
       <About />
+      <Pricing />
       <Contact />
       <FAQ />
       <Footer />

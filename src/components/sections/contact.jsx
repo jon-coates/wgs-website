@@ -107,9 +107,9 @@ const Contact = () => {
             <h2 className="text-4xl font-display text-gray-900 mb-4">
               Get in Touch
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto font-display">
               Ready to discuss your conservation or digitisation project? 
-              We'd love to hear from you and provide a tailored solution for your needs.
+              We'd love to hear from you and provide a tailored solution to your needs.
             </p>
           </div>
 
@@ -120,7 +120,7 @@ const Contact = () => {
                 Send Us a Message
               </h3>
               <p className="text-base text-gray-600 mx-auto  mb-6">
-              We'll be in touch to answer any questions or to discuss your next steps.
+              We'll be in touch to answer any questions and discuss next steps.
             </p>
 
               {/* Hidden HTML form for Netlify detection */}

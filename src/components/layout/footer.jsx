@@ -124,7 +124,7 @@ const Footer = () => {
 
           {/* Acnolodgment of Traditional Owers */}
           <div className="md:col-span-2 lg:col-span-1">
-            <p className='text-sm text-zinc-500'>We acknowledge the Traditional Custodians of this land, the Turrbal and Jagera peoples, whose stories and cultural heritage have been preserved through countless generations. We pay our respects to their Elders past, present and emerging, and honour their role as the first conservators and storytellers of this Country.</p>
+            <p className='text-sm text-zinc-500'>We acknowledge the Traditional Custodians of the land we work on, the Turrbal and Jagera peoples, whose stories and cultural heritage have been preserved through countless generations. We pay our respects to their Elders past, present and emerging, and honour their role as the first conservators and storytellers of this Country.</p>
           </div>
 
         </div>

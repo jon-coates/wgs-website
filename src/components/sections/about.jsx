@@ -7,9 +7,9 @@ function About() {
         {/* Section Header */}
         <div className="text-left md:text-center md:mb-16 mb-8">
           <h2 className="font-display text-4xl md:text-4xl text-zinc-900 mb-4">
-            About White Gloves Studios
+            About White Gloves Studio
           </h2>
-          <p className="text-xl font-sans text-zinc-600 max-w-3xl mx-auto">
+          <p className="text-xl font-display text-zinc-600 max-w-3xl mx-auto">
             Meet Cody, the passionate conservator behind our commitment to preserving your family's precious memories
           </p>
         </div>
@@ -23,7 +23,7 @@ function About() {
               <div className="aspect-[4/5] bg-zinc-200 rounded-2xl overflow-hidden">
                 <img 
                   src="/images/cody-coates.png" 
-                  alt="Cody Coates - Owner of White Gloves Studios"
+                  alt="Cody Coates - Owner of White Gloves Studio"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     // Fallback to a placeholder if image doesn't exist
@@ -55,11 +55,11 @@ function About() {
                 Cody Coates
               </h3> */}
               <p className="text-lg text-zinc-600 leading-relaxed">
-                As the founder and principal conservator of White Gloves Studios, Cody brings over a decade of expertise in paper conservation, digitisation, and archival preservation. With a deep passion for preserving family histories and cultural heritage, Cody established White Gloves Studios to provide professional conservation services to families, institutions, and private collectors across Queensland.
+                As the founder and principal conservator of White Gloves Studio, Cody brings over a decade of expertise in paper conservation, digitisation, and archival preservation. With a deep passion for preserving family histories and cultural heritage, Cody established White Gloves Studio to provide professional conservation services to families, institutions, and private collectors.
               </p>
               
               <p className="text-lg text-zinc-600 leading-relaxed">
-                Having worked with fragile documents, photographs, and artworks throughout their career, Cody understands the emotional and historical value of each item entrusted to our care. Every treatment is approached with the same level of attention and respect, whether it's a family photograph from the 1920s or a collection of historical documents.
+                Having worked with fragile documents, photographs, and artworks throughout their career, Cody understands the emotional and historical value of each item entrusted to our care. Every treatment is approached with the same level of attention and respect, whether it's a family photograph, your grandmonther's recipe book, journals or any other historical document.
               </p>
 
               {/* Credentials and Specialisations */}
@@ -95,7 +95,7 @@ function About() {
                   Ready to preserve your family's precious memories?
                 </h3>
                 <p className="text-zinc-700 mb-8 font-sans text-lg leading-relaxed">
-                  Let's discuss how we can help protect your treasured items for future generations.
+                  Let's discuss how we can help protect your treasured items for future generations to enjoy.
                 </p>
                 <a 
                   href="#contact" 
