@@ -10,7 +10,7 @@ function About() {
             About White Gloves Studio
           </h2>
           <p className="text-xl font-display text-zinc-600 max-w-3xl mx-auto">
-            Meet Cody, the passionate conservator behind our commitment to preserving your family's precious memories
+            Meet <a href="https://www.codyalexander.com.au/" target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:text-brand-500 underline transition-colors">Cody</a>, the passionate conservator behind our commitment to preserving your family's precious memories
           </p>
         </div>
 
@@ -61,6 +61,8 @@ function About() {
               <p className="text-lg text-zinc-600 leading-relaxed">
                 Having worked with fragile documents, photographs, and artworks throughout their career, Cody understands the emotional and historical value of each item entrusted to our care. Every treatment is approached with the same level of attention and respect, whether it's a family photograph, your grandmonther's recipe book, journals or any other historical document.
               </p>
+
+
 
               {/* Credentials and Specialisations */}
               {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
