@@ -8,6 +8,7 @@ const Contact = () => {
     email: '',
     phone: '',
     enquiryType: '',
+    howDidYouFindUs: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,6 +21,17 @@ const Contact = () => {
     { value: 'consultation', label: 'Consultation' },
     { value: 'assessment', label: 'Collection Assessment' },
     { value: 'other', label: 'Other Enquiry' }
+  ];
+
+  const howDidYouFindUsOptions = [
+    { value: '', label: 'Please select...' },
+    { value: 'google', label: 'Google Search' },
+    { value: 'social-media', label: 'Social Media' },
+    { value: 'referral', label: 'Referral/Word of Mouth' },
+    { value: 'industry-event', label: 'Industry Event/Conference' },
+    { value: 'professional-association', label: 'Professional Association' },
+    { value: 'museum-gallery', label: 'Museum/Gallery Website' },
+    { value: 'other', label: 'Other' }
   ];
 
   const handleInputChange = (e) => {
@@ -48,6 +60,7 @@ const Contact = () => {
           email: '',
           phone: '',
           enquiryType: '',
+          howDidYouFindUs: '',
           message: ''
         });
         setIsSubmitting(false);
@@ -77,6 +90,7 @@ const Contact = () => {
           email: '',
           phone: '',
           enquiryType: '',
+          howDidYouFindUs: '',
           message: ''
         });
       } else {
@@ -134,6 +148,15 @@ const Contact = () => {
                   <option value="consultation">Consultation</option>
                   <option value="assessment">Collection Assessment</option>
                   <option value="other">Other Enquiry</option>
+                </select>
+                <select name="howDidYouFindUs">
+                  <option value="google">Google Search</option>
+                  <option value="social-media">Social Media</option>
+                  <option value="referral">Referral/Word of Mouth</option>
+                  <option value="industry-event">Industry Event/Conference</option>
+                  <option value="professional-association">Professional Association</option>
+                  <option value="museum-gallery">Museum/Gallery Website</option>
+                  <option value="other">Other</option>
                 </select>
                 <textarea name="message"></textarea>
               </form>
@@ -232,6 +255,33 @@ const Contact = () => {
                         </svg>
                       </div>
                     </div>                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="howDidYouFindUs" className="block text-sm font-medium text-gray-700 mb-2">
+                    How did you find us? *
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="howDidYouFindUs"
+                      name="howDidYouFindUs"
+                      value={formData.howDidYouFindUs}
+                      onChange={handleInputChange}
+                      required
+                      className="appearance-none w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition-colors bg-white"
+                    >
+                      {howDidYouFindUsOptions.map(option => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
                 <div>

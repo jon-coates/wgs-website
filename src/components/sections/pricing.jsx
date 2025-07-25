@@ -1,7 +1,20 @@
-import { DollarSign, Camera, Archive, Clock, Shield, CheckCircle } from 'lucide-react'
+import { DollarSign, Camera, Archive, Clock, Shield, CheckCircle, ChevronDown, ChevronRight, FileText } from 'lucide-react'
 import Button from "../ui/button"
+import { useState } from 'react'
 
 const Pricing = () => {
+  const [openCards, setOpenCards] = useState(new Set())
+
+  const toggleCard = (cardId) => {
+    const newOpenCards = new Set(openCards)
+    if (newOpenCards.has(cardId)) {
+      newOpenCards.delete(cardId)
+    } else {
+      newOpenCards.add(cardId)
+    }
+    setOpenCards(newOpenCards)
+  }
+
   const pricingData = {
     setupFee: {
       service: "Setup & Admin Fee",
@@ -122,12 +135,30 @@ const Pricing = () => {
     }
   }
 
-  const PricingCard = ({ title, children, className = "" }) => (
-    <div className={`bg-white rounded-2xl border border-zinc-200 p-6  transition-shadow ${className}`}>
-      <h3 className="font-display text-xl text-zinc-900 mb-">{title}</h3>
-      {children}
-    </div>
-  )
+  const PricingCard = ({ title, children, className = "", cardId }) => {
+    const isOpen = openCards.has(cardId)
+    
+    return (
+      <div className={`bg-white rounded-2xl border border-zinc-200 transition-shadow ${className}`}>
+        <button
+          onClick={() => toggleCard(cardId)}
+          className="w-full p-6 text-left flex items-center justify-between hover:bg-zinc-50 transition-colors"
+        >
+          <h3 className="font-display text-xl text-zinc-900">{title}</h3>
+          {isOpen ? (
+            <ChevronDown className="w-5 h-5 text-zinc-400" />
+          ) : (
+            <ChevronRight className="w-5 h-5 text-zinc-400" />
+          )}
+        </button>
+        {isOpen && (
+          <div className="px-6 pb-6">
+            {children}
+          </div>
+        )}
+      </div>
+    )
+  }
 
   const PricingTable = ({ items, showDescription = false }) => (
     <div className="overflow-hidden rounded-lg border border-zinc-200">
@@ -167,15 +198,15 @@ const Pricing = () => {
     </div>
   )
 
-  const navigationItems = [
-    { id: "setup", label: "Setup & Admin Fees", icon: DollarSign },
-    { id: "photo-scanning", label: "Photo Scanning", icon: Camera },
-    { id: "specialised-scanning", label: "Specialised Scanning", icon: Archive },
-    { id: "conservation", label: "Conservation Services", icon: Shield },
-    { id: "additional-services", label: "Additional Services", icon: Clock },
-    { id: "delivery", label: "Delivery Options", icon: Archive },
-    { id: "terms", label: "Terms & Quality", icon: CheckCircle }
-  ]
+//   const navigationItems = [
+//     { id: "setup", label: "Setup & Admin Fees", icon: DollarSign },
+//     { id: "photo-scanning", label: "Photo Scanning", icon: FileText },
+//     { id: "specialised-scanning", label: "Specialised Scanning", icon: Archive },
+//     { id: "conservation", label: "Conservation Services", icon: Shield },
+//     { id: "additional-services", label: "Additional Services", icon: Clock },
+//     { id: "delivery", label: "Delivery Options", icon: Archive },
+//     { id: "terms", label: "Terms & Quality", icon: CheckCircle }
+//   ]
 
   return (
     <section className="py-20 bg-zinc-50" id="pricing">
@@ -193,7 +224,7 @@ const Pricing = () => {
         {/* Main Content with Sidebar */}
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar Navigation */}
-          <div className="lg:w-64 flex-shrink-0">
+          {/* <div className="lg:w-64 flex-shrink-0">
             <div className="sticky top-24">
               <div className="bg-white rounded-2xl border border-zinc-200 p-6 shadow-sm">
                 <h3 className="font-display text-lg text-zinc-900 mb-4">Jump to Pricing for:</h3>
@@ -214,13 +245,13 @@ const Pricing = () => {
                 </nav>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Main Content */}
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-8 max-w-3xl mx-auto">
             {/* Setup Fee */}
             <div id="setup" className="scroll-mt-32">
-              <PricingCard title="Initial Consultation & Setup">
+              <PricingCard title="Initial Consultation & Setup" cardId="setup">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="font-medium text-zinc-900">{pricingData.setupFee.service}</div>
@@ -236,171 +267,177 @@ const Pricing = () => {
 
             {/* Photo Scanning */}
             <div id="photo-scanning" className="scroll-mt-32">
-              <h3 className="font-display text-2xl text-zinc-900 mb-6 flex items-center">
-                <Camera className="w-6 h-6 text-brand-400 mr-3" />
-                Photo Scanning
-              </h3>
-              
-              <div className="space-y-6">
-                <PricingCard title="Fast Feed Scanning">
-                  <p className="text-sm text-zinc-600 mb-0">{pricingData.photoScanning.fastFeed.description}</p>
-                  <p className="text-sm text-zinc-600 mb-4">Max size: {pricingData.photoScanning.fastFeed.maxSize}</p>
-                  <PricingTable items={pricingData.photoScanning.fastFeed.pricing} />
-                </PricingCard>
-                
-                <PricingCard title="Flatbed Scanning">
-                  <p className="text-sm text-zinc-600 mb-0">{pricingData.photoScanning.flatbed.description}</p>
-                  <p className="text-sm text-zinc-600 mb-4">Max size: {pricingData.photoScanning.flatbed.maxSize}</p>
-                  <PricingTable items={pricingData.photoScanning.flatbed.pricing} />
-                </PricingCard>
-              </div>
+              <PricingCard title="Photo Scanning Services" cardId="photo-scanning">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-medium text-zinc-900 mb-2">Fast Feed Scanning</h4>
+                    <p className="text-sm text-zinc-600 mb-2">{pricingData.photoScanning.fastFeed.description}</p>
+                    <p className="text-sm text-zinc-600 mb-3">Max size: {pricingData.photoScanning.fastFeed.maxSize}</p>
+                    <PricingTable items={pricingData.photoScanning.fastFeed.pricing} />
+                  </div>
+                  
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-2">Flatbed Scanning</h4>
+                    <p className="text-sm text-zinc-600 mb-2">{pricingData.photoScanning.flatbed.description}</p>
+                    <p className="text-sm text-zinc-600 mb-3">Max size: {pricingData.photoScanning.flatbed.maxSize}</p>
+                    <PricingTable items={pricingData.photoScanning.flatbed.pricing} />
+                  </div>
+                </div>
+              </PricingCard>
             </div>
 
             {/* Specialised Scanning */}
             <div id="specialised-scanning" className="scroll-mt-32">
-              <h3 className="font-display text-2xl text-zinc-900 mb-6 flex items-center">
-                <Archive className="w-6 h-6 text-brand-400 mr-3" />
-                Specialised Scanning
-              </h3>
-              
-              <div className="space-y-6">
-                <PricingCard title="Negative Scanning">
-                  <PricingTable items={pricingData.negativeScanning} />
-                </PricingCard>
-                
-                <PricingCard title="Slide Scanning">
-                  <PricingTable items={pricingData.slideScanning} />
-                </PricingCard>
-                
-                <PricingCard title="Document Scanning">
-                  <PricingTable items={pricingData.documentScanning} />
-                </PricingCard>
-              </div>
+              <PricingCard title="Specialised Scanning Services" cardId="specialised-scanning">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-medium text-zinc-900 mb-3">Negative Scanning</h4>
+                    <PricingTable items={pricingData.negativeScanning} />
+                  </div>
+                  
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-3">Slide Scanning</h4>
+                    <PricingTable items={pricingData.slideScanning} />
+                  </div>
+                  
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-3">Document Scanning</h4>
+                    <PricingTable items={pricingData.documentScanning} />
+                  </div>
+                </div>
+              </PricingCard>
             </div>
 
             {/* Conservation Services */}
             <div id="conservation" className="scroll-mt-32">
-              <h3 className="font-display text-2xl text-zinc-900 mb-6 flex items-center">
-                <Shield className="w-6 h-6 text-brand-400 mr-3" />
-                Conservation Services
-              </h3>
-              
-              <div className="space-y-6">
-                <PricingCard title="Cleaning & Conservation">
-                  <PricingTable items={pricingData.conservationServices.cleaning} showDescription={true} />
-                </PricingCard>
-                
-                <PricingCard title="Consultation Services">
-                  <PricingTable items={pricingData.conservationServices.consultation} />
-                </PricingCard>
-              </div>
+              <PricingCard title="Conservation & Consultation Services" cardId="conservation">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-medium text-zinc-900 mb-3">Cleaning & Conservation</h4>
+                    <PricingTable items={pricingData.conservationServices.cleaning} showDescription={true} />
+                  </div>
+                  
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-3">Consultation Services</h4>
+                    <PricingTable items={pricingData.conservationServices.consultation} />
+                  </div>
+                </div>
+              </PricingCard>
             </div>
 
             {/* Additional Services */}
             <div id="additional-services" className="scroll-mt-32">
-              <h3 className="font-display text-2xl text-zinc-900 mb-6">Additional Services</h3>
-              
-              <div className="space-y-6">
-                <PricingCard title="Delecate Items">
-                  <PricingTable items={pricingData.fragileItemFees} />
-                </PricingCard>
+              <PricingCard title="Additional Services & Handling" cardId="additional-services">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-medium text-zinc-900 mb-3">Delicate Items</h4>
+                    <PricingTable items={pricingData.fragileItemFees} />
+                  </div>
 
-                <PricingCard title="Album Handling">
-                  <PricingTable items={pricingData.albumHandling} />
-                </PricingCard>
-                
-                <PricingCard title="Digital Services">
-                  <PricingTable items={pricingData.additionalServices} />
-                  <div className="mt-4 pt-4 border-t border-zinc-100">
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-start py-2">
-                        <div className="flex-1">
-                          <div className="font-medium text-zinc-900">{pricingData.fileManagement.customDocumentation.service}</div>
-                          <div className="text-sm text-zinc-600 mt-1">{pricingData.fileManagement.customDocumentation.description}</div>
-                        </div>
-                        <div className="text-right ml-4">
-                          <div className="font-semibold text-zinc-900">${pricingData.fileManagement.customDocumentation.priceRange}</div>
-                          <div className="text-sm text-zinc-600">{pricingData.fileManagement.customDocumentation.unit}</div>
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-3">Album Handling</h4>
+                    <PricingTable items={pricingData.albumHandling} />
+                  </div>
+                  
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-3">Digital Services</h4>
+                    <PricingTable items={pricingData.additionalServices} />
+                    <div className="mt-4 pt-4 border-t border-zinc-100">
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-start py-2">
+                          <div className="flex-1">
+                            <div className="font-medium text-zinc-900">{pricingData.fileManagement.customDocumentation.service}</div>
+                            <div className="text-sm text-zinc-600 mt-1">{pricingData.fileManagement.customDocumentation.description}</div>
+                          </div>
+                          <div className="text-right ml-4">
+                            <div className="font-semibold text-zinc-900">${pricingData.fileManagement.customDocumentation.priceRange}</div>
+                            <div className="text-sm text-zinc-600">{pricingData.fileManagement.customDocumentation.unit}</div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </PricingCard>
-              </div>
+                </div>
+              </PricingCard>
             </div>
 
             {/* Delivery Options */}
             <div id="delivery" className="scroll-mt-32">
-              <h3 className="font-display text-2xl text-zinc-900 mb-6">Delivery Options</h3>
-              
-              <div className="space-y-6">
-                <PricingCard title="Digital Delivery">
-                  <PricingTable items={pricingData.deliveryOptions.digital} />
-                  <div className="mt-4 p-3 bg-zinc-50 rounded-lg">
-                    <p className="text-sm text-zinc-600 italic">{pricingData.deliveryOptions.note}</p>
+              <PricingCard title="Delivery & Storage Options" cardId="delivery">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-medium text-zinc-900 mb-3">Digital Delivery</h4>
+                    <PricingTable items={pricingData.deliveryOptions.digital} />
+                    <div className="mt-4 p-3 bg-zinc-50 rounded-lg">
+                      <p className="text-sm text-zinc-600 italic">{pricingData.deliveryOptions.note}</p>
+                    </div>
                   </div>
-                </PricingCard>
-                
-                <PricingCard title="Physical Delivery">
-                  <PricingTable items={pricingData.deliveryOptions.physical} />
-                </PricingCard>
-              </div>
+                  
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-3">Physical Delivery</h4>
+                    <PricingTable items={pricingData.deliveryOptions.physical} />
+                  </div>
+                </div>
+              </PricingCard>
             </div>
 
             {/* Terms & Quality */}
             <div id="terms" className="scroll-mt-32">
-              <h3 className="font-display text-2xl text-zinc-900 mb-6">Terms & Quality</h3>
-              
-              <div className="space-y-6">
-                <PricingCard title="Payment Terms">
-                  <div className="space-y-3">
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-zinc-600">{pricingData.terms.payment.deposit}</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-zinc-600">{pricingData.terms.payment.due}</span>
-                    </div>
-                    <div className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <span className="text-zinc-600">{pricingData.terms.payment.methods}</span>
-                    </div>
-                  </div>
-                </PricingCard>
-                
-                <PricingCard title="Turnaround Times">
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-zinc-600">Standard projects:</span>
-                      <span className="font-medium text-zinc-900">{pricingData.terms.turnaround.standard}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-600">Large projects:</span>
-                      <span className="font-medium text-zinc-900">{pricingData.terms.turnaround.large}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-600">Conservation work:</span>
-                      <span className="font-medium text-zinc-900">{pricingData.terms.turnaround.conservation}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-zinc-600">Rush service:</span>
-                      <span className="font-medium text-zinc-900">{pricingData.terms.turnaround.rush}</span>
-                    </div>
-                  </div>
-                </PricingCard>
-                
-                <PricingCard title="Quality Guarantee">
-                  <div className="space-y-3">
-                    {pricingData.terms.quality.map((item, index) => (
-                      <div key={index} className="flex items-start">
+              <PricingCard title="Terms, Quality & Guarantees" cardId="terms">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-medium text-zinc-900 mb-3">Payment Terms</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-zinc-600">{item}</span>
+                        <span className="text-zinc-600">{pricingData.terms.payment.deposit}</span>
                       </div>
-                    ))}
+                      <div className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-zinc-600">{pricingData.terms.payment.due}</span>
+                      </div>
+                      <div className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-zinc-600">{pricingData.terms.payment.methods}</span>
+                      </div>
+                    </div>
                   </div>
-                </PricingCard>
-              </div>
+                  
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-3">Turnaround Times</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-zinc-600">Standard projects:</span>
+                        <span className="font-medium text-zinc-900">{pricingData.terms.turnaround.standard}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-zinc-600">Large projects:</span>
+                        <span className="font-medium text-zinc-900">{pricingData.terms.turnaround.large}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-zinc-600">Conservation work:</span>
+                        <span className="font-medium text-zinc-900">{pricingData.terms.turnaround.conservation}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-zinc-600">Rush service:</span>
+                        <span className="font-medium text-zinc-900">{pricingData.terms.turnaround.rush}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="pt-4 border-t border-zinc-100">
+                    <h4 className="font-medium text-zinc-900 mb-3">Quality Guarantee</h4>
+                    <div className="space-y-3">
+                      {pricingData.terms.quality.map((item, index) => (
+                        <div key={index} className="flex items-start">
+                          <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
+                          <span className="text-zinc-600">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </PricingCard>
             </div>
 
 
