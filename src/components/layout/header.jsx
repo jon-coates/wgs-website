@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { Menu, X, Phone, Mail } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import Button from '../ui/button'
 import { siteConfig } from '../../config/siteConfig'
+import useNavigation from '../../hooks/useNavigation'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { navigateToSection } = useNavigation()
 
   return (
     <header className="bg-white border-b-1 border-zinc-200 sticky top-0 z-50">
@@ -13,21 +16,21 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-base md:text-2xl font-display font-bold text-zinc-900">
+            <Link to="/" className="text-base md:text-2xl font-display font-bold text-zinc-900 hover:text-brand-600 transition-colors">
               White Gloves Studio
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8 font-display">
             {siteConfig.navigation.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
+                onClick={() => navigateToSection(item.href)}
                 className="text-gray-700 hover:text-brand-600 font-medium transition-colors"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </div>
 
@@ -53,9 +56,9 @@ const Header = () => {
             <div className="flex flex-col h-full">
               {/* Mobile menu header */}
               <div className="flex justify-between items-center p-6 border-b border-gray-100">
-                <div className="text-2xl font-display font-bold text-zinc-900">
+                <Link to="/" className="text-2xl font-display font-bold text-zinc-900 hover:text-brand-600 transition-colors">
                   White Gloves Studio
-                </div>
+                </Link>
                 <button
                   onClick={() => setIsMenuOpen(false)}
                   className="p-2 rounded-md text-gray-600 hover:text-brand-600 hover:bg-gray-100"
@@ -69,14 +72,16 @@ const Header = () => {
                 {/* Navigation links - centered */}
                 <div className="flex flex-col space-y-6">
                   {siteConfig.navigation.map((item) => (
-                    <a
+                    <button
                       key={item.name}
-                      href={item.href}
-                      className="text-2xl text-gray-700 hover:text-brand-600 font-display py-3 transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        navigateToSection(item.href);
+                      }}
+                      className="text-2xl text-gray-700 hover:text-brand-600 font-display py-3 transition-colors text-left"
                     >
                       {item.name}
-                    </a>
+                    </button>
                   ))}
                 </div>
                 

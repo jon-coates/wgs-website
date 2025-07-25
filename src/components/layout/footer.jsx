@@ -2,6 +2,7 @@
 import { siteConfig } from '../../config/siteConfig'
 
 import { Mail, Phone, MapPin, Clock, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Button from '../ui/button';
 // import { siteConfig } from '../config/siteConfig';
 
@@ -135,18 +136,18 @@ const Footer = () => {
           </div>
           
           <div className="flex space-x-6 text-sm">
-            <a 
-              href="#privacy" 
+            <Link 
+              to="/privacy-policy" 
               className="text-gray-600 hover:text-brand-600 transition-colors"
             >
               Privacy Policy
-            </a>
-            <a 
-              href="#terms" 
+            </Link>
+            <Link 
+              to="/terms-of-service" 
               className="text-gray-600 hover:text-brand-600 transition-colors"
             >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
