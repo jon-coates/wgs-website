@@ -15,44 +15,52 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "White Gloves Studio",
-  "description": "Professional conservation, digitisation, and collection management services for museums, galleries, and cultural institutions.",
+  "description": "Don't be the last person to see your family's photos. Professional photo scanning, digitisation and preservation services to protect your precious memories.",
   "url": "https://whiteglovesstudio.com",
   "logo": "https://whiteglovesstudio.com/favicon.svg",
   "image": "https://whiteglovesstudio.com/images/ogimage.png",
   "serviceType": [
-    "Conservation Services",
-    "Digitisation Services", 
-    "Collection Management",
-    "Archival Services",
-    "Museum Services"
+    "Photo Scanning Services",
+    "Family Photo Digitisation", 
+    "Photo Preservation",
+    "Film Scanning",
+    "Photo Restoration"
   ],
   "areaServed": "Australia",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Conservation and Digitisation Services",
+    "name": "Family Photo Scanning and Preservation Services",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Digitisation & Rehousing",
-          "description": "Professional digitisation and archival rehousing services for photographs and documents"
+          "name": "Fast Feed Bulk Photo Scanning",
+          "description": "Quick batch scanning of photo collections with professional colour correction and automatic scanning of photo backs"
         }
       },
       {
         "@type": "Offer", 
         "itemOffered": {
           "@type": "Service",
-          "name": "Conservation Services",
-          "description": "Expert conservation and preservation services for cultural heritage items"
+          "name": "Film & Negative Scanning",
+          "description": "Expert handling of delicate negatives, old film, and fragile photos with conservation check-up included"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service", 
-          "name": "Collection Assessment",
-          "description": "Professional assessment and consultation for collection management"
+          "name": "Photo Conservation & Repairs",
+          "description": "Tear repair, stain reduction, and stabilising deteriorating photos so they last for generations"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service", 
+          "name": "Archival Storage & Rehousing",
+          "description": "Custom storage solutions with proper archival materials to keep your collection safe and organised"
         }
       }
     ]
