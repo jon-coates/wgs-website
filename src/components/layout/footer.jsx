@@ -7,18 +7,18 @@ import Button from '../ui/button';
 // import { siteConfig } from '../config/siteConfig';
 
 const Footer = () => {
-  const getSocialIcon = (iconName) => {
-    switch (iconName) {
-      case 'LinkedIn':
-        return Linkedin;
-      case 'Instagram':
-        return Instagram;
-      case 'Facebook':
-        return Facebook;
-      default:
-        return null;
-    }
-  };
+//   const getSocialIcon = (iconName) => {
+//     switch (iconName) {
+//       case 'LinkedIn':
+//         return Linkedin;
+//       case 'Instagram':
+//         return Instagram;
+//       case 'Facebook':
+//         return Facebook;
+//       default:
+//         return null;
+//     }
+//   };
 
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
@@ -51,7 +51,7 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="mt-6">
+            {/* <div className="mt-6">
               <h4 className="text-sm font-semibold text-gray-900 mb-3">Connect With Us</h4>
               <div className="flex space-x-4">
                 {siteConfig.socialLinks.map((social, index) => {
@@ -70,7 +70,7 @@ const Footer = () => {
                   ) : null;
                 })}
               </div>
-            </div>
+            </div> */}
           </div>
 
 
