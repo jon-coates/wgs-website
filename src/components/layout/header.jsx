@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Button from '../ui/button'
 import { siteConfig } from '../../config/siteConfig'
 import useNavigation from '../../hooks/useNavigation'
+import WgsLogo from '../../../public/images/wgs-logo.svg'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -16,8 +17,8 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="text-base md:text-2xl font-display font-bold text-zinc-900 hover:text-brand-600 transition-colors">
-              White Gloves Studio
+            <Link to="/" className="hover:opacity-80 transition-opacity">
+              <img src={WgsLogo} alt="White Gloves Studio" className="h-8 md:h-10 w-auto" />
             </Link>
           </div>
 
@@ -55,9 +56,9 @@ const Header = () => {
           <div className="lg:hidden fixed inset-0 bg-white z-50">
             <div className="flex flex-col h-full">
               {/* Mobile menu header */}
-              <div className="flex justify-between items-center p-6 border-b border-gray-100">
-                <Link to="/" className="text-2xl font-display font-bold text-zinc-900 hover:text-brand-600 transition-colors">
-                  White Gloves Studio
+              <div className="flex justify-between items-center px-6 py-4 border-b border-gray-100">
+                <Link to="/" className="hover:opacity-80 transition-opacity">
+                  <img src={WgsLogo} alt="White Gloves Studio" className="h-8 w-auto" />
                 </Link>
                 <button
                   onClick={() => setIsMenuOpen(false)}
