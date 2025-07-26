@@ -1,0 +1,20 @@
+{
+  "name": "White Gloves Studio",
+  "short_name": "White Gloves",
+  "description": "Professional conservation, digitisation, and collection management services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#f8f9fa",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "professional"],
+  "lang": "en-AU",
+  "dir": "ltr"
+} 
