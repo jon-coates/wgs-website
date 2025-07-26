@@ -1,36 +1,46 @@
-import { Camera, Archive, BrushCleaning, CheckCircle } from 'lucide-react'
+import { Camera, Archive, Film, CheckCircle, Layers, BrushCleaning } from 'lucide-react'
 import Button from "../ui/button"
 
 const Services = () => {
     const services = [
         {
-          icon: Camera,
-          title: "Scanning & Digitisation",
-          description: "Professional digitisation services creating high-quality digital surrogates whilst minimising handling of fragile materials.",
+          icon: Layers,
+          title: "Fast Feed Bulk Photo Scanning",
+          description: "Got loads of photos to digitise? Our fast-feed scanners make quick work of large collections while keeping your precious memories safe.",
           features: [
-            "High-resolution scanning",
-            "Colour-managed digital workflows",
-            "Long-term digital storage solutions"
+            "Quick batch scanning of photo collections",
+            "Professional colour correction included", 
+            "Automatic scanning of photo backs too"
           ]
         },
         {
-          icon: BrushCleaning,
-          title: "Conservation & Preservation",
-          description: "Expert conservation assessments and treatments by a qualified conservator to stabilise and preserve items for years to come.",
+          icon: Film,
+          title: "Scan Film, Negatives & Fragile Items",
+          description: "The tricky stuff needs extra care. We specialise in digitising delicate negatives, old film, and those fragile photos that make you hold your breath.",
           features: [
-            "Condition assessment & documentation",
-            "Preventive conservation planning",
-            "Emergency response and disaster recovery"
+            "All film formats - 35mm to large format",
+            "Expert handling of glass plates and brittle items",
+            "Conservation check-up included with every scan"
+          ]
+        },
+        {
+          icon: BrushCleaning, 
+          title: "Conservation and Repairs",
+          description: "When your photos need more than just scanning - we can help repair tears, remove stains, and stabilise deteriorating images so they last for generations.",
+          features: [
+            "Tear repair and edge reinforcement",
+            "Stain reduction and cleaning treatments",
+            "Stabilising fading or deteriorating photos"
           ]
         },
         {
           icon: Archive,
-          title: "Archival Storage & Rehousing",
-          description: "Custom rehousing solutions using conservation-grade materials and archival standards to protect your collection whilst ensuring accessibility.",
+          title: "Archival Storage and Rehousing",
+          description: "Time to give your collection a proper home? We'll sort out custom storage solutions that'll keep everything safe and easy to find.",
           features: [
-            "Custom archival enclosures",
-            "Conservation-grade materials only",
-            "Collection organisation and cataloguing"
+            "Custom boxes and folders made to measure",
+            "Only the good stuff - proper archival materials",
+            "Help organising and cataloguing your collection"
           ]
         }
       ]
@@ -50,7 +60,7 @@ const Services = () => {
         </div> */}
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -67,9 +77,9 @@ const Services = () => {
                 </h3>
                 
                 {/* Description */}
-                {/* <p className="text-zinc-600 mb-6 font-normal leading-relaxed text-lg">
+                <p className="text-zinc-600 mb-6 font-normal leading-relaxed">
                   {service.description}
-                </p> */}
+                </p>
                 
                 {/* Features List */}
                 <ul className="space-y-2 mb-6 font-sans">

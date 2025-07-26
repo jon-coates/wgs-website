@@ -16,7 +16,7 @@ function Hero() {
             
             {/* Subheadline */}
             <p className="text-lg text-zinc-600 mb-8">
-            Protect your originals. Create crystal-clear digital archives. Preserve your family's story for generations to come.
+            Protect your originals. Create crystal-clear digital archives.<br/> Preserve your family's story for generations to come.
             </p>
             
             
