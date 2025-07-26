@@ -5,17 +5,17 @@ const Services = () => {
     const services = [
         {
           icon: Layers,
-          title: "Fast Feed Bulk Photo Scanning",
+          title: "Fast-Feed Bulk Photo Scanning",
           description: "Got loads of photos to digitise? Our fast-feed scanners make quick work of large collections while keeping your precious memories safe.",
           features: [
             "Quick batch scanning of photo collections",
             "Professional colour correction included", 
-            "Automatic scanning of photo backs too"
+            "Automatic scanning of photo backs if required"
           ]
         },
         {
           icon: Film,
-          title: "Scan Film, Negatives & Fragile Items",
+          title: "Negatives, Slides & Fragile Items",
           description: "The tricky stuff needs extra care. We specialise in digitising delicate negatives, old film, and those fragile photos that make you hold your breath.",
           features: [
             "All film formats - 35mm to large format",
@@ -72,17 +72,17 @@ const Services = () => {
                 </div>
                 
                 {/* Title */}
-                <h3 className="font-display text-2xl md:text-3xl text-zinc-900 mb-4">
+                <h3 className="font-display font-bold text-2xl md:text-3xl text-zinc-900 mb-4">
                   {service.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-zinc-600 mb-6 font-normal leading-relaxed">
+                <p className="text-zinc-800 mb-6 font-display text-lg">
                   {service.description}
                 </p>
                 
                 {/* Features List */}
-                <ul className="space-y-2 mb-6 font-sans">
+                <ul className="space-y-2 mb-6 font-sans text-lg">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-brand-600 mt-0.5 mr-3 flex-shrink-0" />
