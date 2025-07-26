@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Menu, X, Phone, Mail } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Button from '../ui/button'
 import { siteConfig } from '../../config/siteConfig'
 import useNavigation from '../../hooks/useNavigation'
@@ -9,6 +9,14 @@ import WgsLogo from '../../../public/images/wgs-logo.svg'
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { navigateToSection } = useNavigation()
+  const location = useLocation()
+
+  const handleLogoClick = (e) => {
+    if (location.pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   return (
     <header className="bg-white border-b-1 border-zinc-200 sticky top-0 z-50">
@@ -17,7 +25,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="hover:opacity-80 transition-opacity">
+            <Link to="/" className="hover:opacity-80 transition-opacity" onClick={handleLogoClick}>
               <img src={WgsLogo} alt="White Gloves Studio" className="h-8 md:h-10 w-auto" />
             </Link>
           </div>
@@ -57,7 +65,7 @@ const Header = () => {
             <div className="flex flex-col h-full">
               {/* Mobile menu header */}
               <div className="flex justify-between items-center px-6 py-4 border-b border-gray-100">
-                <Link to="/" className="hover:opacity-80 transition-opacity">
+                <Link to="/" className="hover:opacity-80 transition-opacity" onClick={handleLogoClick}>
                   <img src={WgsLogo} alt="White Gloves Studio" className="h-8 w-auto" />
                 </Link>
                 <button
